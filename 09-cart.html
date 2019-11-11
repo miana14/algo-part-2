@@ -5,98 +5,45 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Exo d'Algo - Soup !</title>
+    <title>Exo d'Algo - Cart !</title>
     <link href="./bootstrap.min.css" rel="stylesheet" />
     <link href="./style.css" rel="stylesheet" />
 </head>
 <body>
 <a href="index.html">← revenir à la liste des exos</a>
 <div class="card">
-    <p class="h6 font-weight-bold text-center">#10 - La bonne sou-soupe</p>
+    <p class="h6 font-weight-bold text-center">#09 - Panier</p>
     <div class="instructions">
-        <p class="text-secondary">Votre mission si toutefois vous l'acceptez, est de donner votre avis sur la soupe</p>
+        <p class="text-secondary">Votre mission si toutefois vous l'acceptez, est de vérifier la concordance des mots de passes :</p>
         <br />
-        <p class="text-secondary">Si je sélectionne uniquement des aliments salés et comestibles</p>
-        <p class="text-secondary">Afficher : "Hum la bonne sou-soupe salée !"</p>
-        <p class="text-secondary">Si je sélectionne uniquement des aliments sucrés et comestibles</p>
-        <p class="text-secondary">Afficher : "Hum la bonne sou-soupe sucrée !"</p>
-        <p class="text-secondary">Si je sélectionne des aliments sucrés et salés comestibles</p>
-        <p class="text-secondary">Afficher : "Beurk... c'est pas bon !"</p>
-        <p class="text-secondary">Si je sélectionne un poison</p>
-        <p class="text-secondary">Afficher : "Game over..."</p>
-        <p class="text-secondary">Un autre cas existe, il faudra les traiter !</p>
+        <p class="text-secondary">Vous devez retourner la valeur de votre panier</p>
+        <p class="text-secondary">Si je sélectionne <i class="text-dark">Une formation sur javascript (30€)</i> avec le bon code de promotion, j'obtiendrai :</p>
+        <p class="text-success">"La valeur de votre panier est de 27€"</p>
     </div>
 
-    <div>
-        <input type="checkbox" id="carrots" name="carrots">
-        <label for="carrots">Carottes</label>
-    </div>
-    <div>
-        <input type="checkbox" id="tomatoes" name="tomatoes">
-        <label for="tomatoes">Tomates</label>
-    </div>
-    <div>
-        <input type="checkbox" id="cyanide" name="cyanide">
-        <label for="cyanide">Cyanure</label>
-    </div>
-    <div>
-        <input type="checkbox" id="potatoes" name="potatoes">
-        <label for="potatoes">Pommes de terre</label>
-    </div>
-    <div>
-        <input type="checkbox" id="black-chocolate" name="black-chocolate">
-        <label for="black-chocolate">Chocolat noir</label>
-    </div>
-    <div>
-        <input type="checkbox" id="vitriol" name="vitriol">
-        <label for="vitriol">Vitriol</label>
-    </div>
-    <div>
-        <input type="checkbox" id="white-chocolate" name="white-chocolate">
-        <label for="white-chocolate">Chocolat blanc</label>
-    </div>
-    <button type="button" class="btn btn-primary" onclick="doYouLikeIt()">
-        Ma soupe est-elle bonne ?
+    <select name="article" id="articles">
+        <option value="">--Sélectionner un article--</option>
+        <option value="one">Une formation sur javascript (30€)</option>
+        <option value="two">Deux formations sur javascript (50€)</option>
+    </select>
+
+    <label>Code de réduction (10% de réduction)</label>
+    <br/>
+    <input type="text" id="promotion" />
+    <br/>
+    <button type="button" class="btn btn-primary" onclick="cartValue()">
+        Connaître la valeur de mon panier
     </button>
 </div>
 
 <script type="text/javascript">
-    function doYouLikeIt() {
-        if (isPoisoned()) {
-            alert("Game over...");
-        } else if (isSalty() && isSweet()) {
-            alert("Beurk... c'est pas bon !");
-        } else if (isSalty() || isSweet()){
-            if (isSalty()) {
-                alert("Hum la bonne sou-soupe salée !");
-            } else {
-                alert("Hum la bonne sou-soupe sucrée !");
-            }
-        } else {
-            alert("J'ai faim !");
-        }
-    }
+    const VALID_PROMOTION_CODE = "10POUR100";
 
-    function isSalty() {
-        let carrots = document.getElementById("carrots").checked;
-        let potatoes = document.getElementById("potatoes").checked;
-        let tomatoes = document.getElementById("tomatoes").checked;
+    function cartValue() {
+        let articles = document.getElementById("articles");
+        let selectedArticle = articles.options[articles.selectedIndex].value;
 
-        return carrots || potatoes || tomatoes;
-    }
-
-    function isSweet() {
-        let blackChocolate = document.getElementById("black-chocolate").checked;
-        let whiteChocolate = document.getElementById("white-chocolate").checked;
-
-        return blackChocolate || whiteChocolate;
-    }
-
-    function isPoisoned() {
-        let vitriol = document.getElementById("vitriol").checked;
-        let cyanide = document.getElementById("cyanide").checked;
-
-        return vitriol || cyanide;
+        // CODE HERE !
     }
 </script>
 </body>
