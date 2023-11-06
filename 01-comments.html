@@ -27,13 +27,13 @@
 </div>
 
 <script type="text/javascript">
-    function displayMessage() {
-        let firstname = document.getElementById("firstname").value;
-        let lastname = document.getElementById("lastname").value;
-        let fullname = firstname + " " + lastname.toUpperCase();
-        let message = "Bonjour " + fullname;
+    function displayMessage() { /* cette fonction permet d'établir les variables pour que le message puisse s'afficher */ 
+        let firstname = document.getElementById("firstname").value; /* récupère la valeur du id firstname */
+        let lastname = document.getElementById("lastname").value; /* récupère la valeur du id lastname */
+        let fullname = firstname + " " + lastname.toUpperCase(); /* édite l'affichage du message, fistname en 1er avec un espace et lastname en majuscules */
+        let message = "Bonjour " + fullname; /* cette variable ajoute 'Bonjour' au message général suivi de fullname */
 
-        alert(message)
+        alert(message) // affiche le message
     }
 </script>
 </body>
