@@ -44,16 +44,16 @@
         <label for="potatoes">Pommes de terre</label>
     </div>
     <div>
-        <input type="checkbox" id="black-chocolate" name="black-chocolate">
-        <label for="black-chocolate">Chocolat noir</label>
+        <input type="checkbox" id="black_chocolate" name="black_chocolate">
+        <label for="black_chocolate">Chocolat noir</label>
     </div>
     <div>
         <input type="checkbox" id="vitriol" name="vitriol">
         <label for="vitriol">Vitriol</label>
     </div>
     <div>
-        <input type="checkbox" id="white-chocolate" name="white-chocolate">
-        <label for="white-chocolate">Chocolat blanc</label>
+        <input type="checkbox" id="white_chocolate" name="white_chocolate">
+        <label for="white_chocolate">Chocolat blanc</label>
     </div>
     <button type="button" class="btn btn-primary" onclick="doYouLikeIt()">
         Ma soupe est-elle bonne ?
@@ -61,22 +61,44 @@
 </div>
 
 <script type="text/javascript">
-    function doYouLikeIt() {
-        // CODE HERE !
-    }
-
+   
     function isSalty() {
         let carrots = document.getElementById("carrots").checked;
-        // CODE HERE !
+        let tomatoes = document.getElementById("tomatoes").checked;
+        let potatoes = document.getElementById("potatoes").checked;
+        return carrots || tomatoes || potatoes;
     }
 
     function isSweet() {
-        // CODE HERE !
+        let black_chocolate = document.getElementById("black_chocolate").checked;
+        let white_chocolate = document.getElementById("white_chocolate").checked;
+        return black_chocolate || white_chocolate;
     }
 
     function isPoisoned() {
-        // CODE HERE !
+        let vitriol = document.getElementById("vitriol").checked;
+        let cyanide = document.getElementById("cyanide").checked;
+        return vitriol || cyanide;
     }
+    
+    function doYouLikeIt() {
+        let salty = isSalty();
+        let sweet = isSweet();
+        let poisoned = isPoisoned();
+
+        if (salty && sweet){
+            alert("Beurk... c'est pas bon !");
+        } else if (salty) {
+            alert("Hum la bonne sou-soupe salée !");
+        } else if (poisoned) {
+            alert("Game over...");
+        } else if (sweet) {
+            alert("Hum la bonne sou-soupe sucrée !");
+        } else {
+            alert("Un autre cas existe, il faudra le traiter !");
+        }
+    }
+
 </script>
 </body>
 </html>
