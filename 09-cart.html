@@ -23,8 +23,8 @@
 
     <select name="article" id="articles">
         <option value="">--Sélectionner un article--</option>
-        <option value="one">Une formation sur javascript (30€)</option>
-        <option value="two">Deux formations sur javascript (50€)</option>
+        <option value="one" id="one">Une formation sur javascript (30€)</option>
+        <option value="two" id="two">Deux formations sur javascript (50€)</option>
     </select>
 
     <label>Code de réduction (10% de réduction)</label>
@@ -37,14 +37,27 @@
 </div>
 
 <script type="text/javascript">
-    const VALID_PROMOTION_CODE = "10POUR100";
-
     function cartValue() {
         let articles = document.getElementById("articles");
         let selectedArticle = articles.options[articles.selectedIndex].value;
+            if (one) {
+                alert("La valeur de votre panier est de 27€");
+            } else if (two) {
+                alert("La valeur de votre panier est de 45€")
+            }
 
-        // CODE HERE !
-    }
+// let gngn = articles *10/100
+
+        const valid_promotion_code = "10POUR100";
+        let promotion = document.getElementById("promotion").value;
+            if (promotion === valid_promotion_code) {
+            alert("Le code promo est valable");
+            }
+            else {
+            alert("Le code promo n'est plus valable");
+            }
+        }
+
 </script>
 </body>
 </html>
