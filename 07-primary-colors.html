@@ -24,9 +24,9 @@
     <!--Formulaire-->
     <select name="color" id="colors">
         <option value="">--Choisissez une couleur--</option>
-        <option value="green">Vert</option>
-        <option value="purple">Violet</option>
-        <option value="orange">Orange</option>
+        <option value="green" id="green">Vert</option>
+        <option value="purple" id="purple">Violet</option>
+        <option value="orange" id="orange">Orange</option>
     </select>
     <button type="button" class="btn btn-primary" onclick="primaryColors()">
         Découvrir la composition
@@ -37,7 +37,19 @@
     function primaryColors() {
         let colors = document.getElementById("colors");
         let secondaryColor = colors.options[colors.selectedIndex].value;
-
+        let messagePurple = "Le violet est composé de bleu et de rouge";
+        let messageGreen = "Le vert est composé de bleu et de jaune";
+        let messageOrange = "L'orange est composé de rouge et de jaune";
+        
+        if (secondaryColor === "purple") {
+        alert(messagePurple);
+        } else if (secondaryColor === "green") {
+        alert(messageGreen);
+        } else if (secondaryColor === "orange") {
+        alert(messageOrange);
+        } else {
+        alert("Veuillez sélectionner une couleur valide");
+        }
  
     }
         // let message = "Le" ++ "est composé de" ++ "et de" +
