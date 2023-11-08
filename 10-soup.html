@@ -1,104 +1,118 @@
 <!doctype html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Exo d'Algo - Soup !</title>
     <link href="./bootstrap.min.css" rel="stylesheet" />
     <link href="./style.css" rel="stylesheet" />
 </head>
+
 <body>
-<a href="index.html">← revenir à la liste des exos</a>
-<div class="card">
-    <p class="h6 font-weight-bold text-center">#10 - La bonne sou-soupe</p>
-    <div class="instructions">
-        <p class="text-secondary">Votre mission si toutefois vous l'acceptez, est de donner votre avis sur la soupe</p>
-        <br />
-        <p class="text-secondary">Si je sélectionne uniquement des aliments salés et comestibles</p>
-        <p class="text-secondary">Afficher : "Hum la bonne sou-soupe salée !"</p>
-        <p class="text-secondary">Si je sélectionne uniquement des aliments sucrés et comestibles</p>
-        <p class="text-secondary">Afficher : "Hum la bonne sou-soupe sucrée !"</p>
-        <p class="text-secondary">Si je sélectionne des aliments sucrés et salés comestibles</p>
-        <p class="text-secondary">Afficher : "Beurk... c'est pas bon !"</p>
-        <p class="text-secondary">Si je sélectionne un poison</p>
-        <p class="text-secondary">Afficher : "Game over..."</p>
-        <p class="text-secondary">Un autre cas existe, il faudra les traiter !</p>
+    <a href="index.html">← revenir à la liste des exos</a>
+    <div class="card">
+        <p class="h6 font-weight-bold text-center">#10 - La bonne sou-soupe</p>
+        <div class="instructions">
+            <p class="text-secondary">Votre mission si toutefois vous l'acceptez, est de donner votre avis sur la soupe
+            </p>
+            <br />
+            <p class="text-secondary">Si je sélectionne uniquement des aliments salés et comestibles</p>
+            <p class="text-secondary">Afficher : "Hum la bonne sou-soupe salée !"</p>
+            <p class="text-secondary">Si je sélectionne uniquement des aliments sucrés et comestibles</p>
+            <p class="text-secondary">Afficher : "Hum la bonne sou-soupe sucrée !"</p>
+            <p class="text-secondary">Si je sélectionne des aliments sucrés et salés comestibles</p>
+            <p class="text-secondary">Afficher : "Beurk... c'est pas bon !"</p>
+            <p class="text-secondary">Si je sélectionne un poison</p>
+            <p class="text-secondary">Afficher : "Game over..."</p>
+            <p class="text-secondary">Un autre cas existe, il faudra les traiter !</p>
+        </div>
+
+        <div>
+            <input type="checkbox" id="carrots" name="carrots">
+            <label for="carrots">Carottes</label>
+        </div>
+        <div>
+            <input type="checkbox" id="tomatoes" name="tomatoes">
+            <label for="tomatoes">Tomates</label>
+        </div>
+        <div>
+            <input type="checkbox" id="cyanide" name="cyanide">
+            <label for="cyanide">Cyanure</label>
+        </div>
+        <div>
+            <input type="checkbox" id="potatoes" name="potatoes">
+            <label for="potatoes">Pommes de terre</label>
+        </div>
+        <div>
+            <input type="checkbox" id="black_chocolate" name="black_chocolate">
+            <label for="black_chocolate">Chocolat noir</label>
+        </div>
+        <div>
+            <input type="checkbox" id="vitriol" name="vitriol">
+            <label for="vitriol">Vitriol</label>
+        </div>
+        <div>
+            <input type="checkbox" id="white_chocolate" name="white_chocolate">
+            <label for="white_chocolate">Chocolat blanc</label>
+        </div>
+        <button type="button" class="btn btn-primary" onclick="doYouLikeIt()">
+            Ma soupe est-elle bonne ?
+        </button>
     </div>
 
-    <div>
-        <input type="checkbox" id="carrots" name="carrots">
-        <label for="carrots">Carottes</label>
-    </div>
-    <div>
-        <input type="checkbox" id="tomatoes" name="tomatoes">
-        <label for="tomatoes">Tomates</label>
-    </div>
-    <div>
-        <input type="checkbox" id="cyanide" name="cyanide">
-        <label for="cyanide">Cyanure</label>
-    </div>
-    <div>
-        <input type="checkbox" id="potatoes" name="potatoes">
-        <label for="potatoes">Pommes de terre</label>
-    </div>
-    <div>
-        <input type="checkbox" id="black_chocolate" name="black_chocolate">
-        <label for="black_chocolate">Chocolat noir</label>
-    </div>
-    <div>
-        <input type="checkbox" id="vitriol" name="vitriol">
-        <label for="vitriol">Vitriol</label>
-    </div>
-    <div>
-        <input type="checkbox" id="white_chocolate" name="white_chocolate">
-        <label for="white_chocolate">Chocolat blanc</label>
-    </div>
-    <button type="button" class="btn btn-primary" onclick="doYouLikeIt()">
-        Ma soupe est-elle bonne ?
-    </button>
-</div>
+    <script type="text/javascript">
 
-<script type="text/javascript">
-   
-    function isSalty() {
-        let carrots = document.getElementById("carrots").checked;
-        let tomatoes = document.getElementById("tomatoes").checked;
-        let potatoes = document.getElementById("potatoes").checked;
-        return carrots || tomatoes || potatoes;
-    }
-
-    function isSweet() {
-        let black_chocolate = document.getElementById("black_chocolate").checked;
-        let white_chocolate = document.getElementById("white_chocolate").checked;
-        return black_chocolate || white_chocolate;
-    }
-
-    function isPoisoned() {
-        let vitriol = document.getElementById("vitriol").checked;
-        let cyanide = document.getElementById("cyanide").checked;
-        return vitriol || cyanide;
-    }
-    
-    function doYouLikeIt() {
-        let salty = isSalty();
-        let sweet = isSweet();
-        let poisoned = isPoisoned();
-
-        if (salty && sweet){
-            alert("Beurk... c'est pas bon !");
-        } else if (salty) {
-            alert("Hum la bonne sou-soupe salée !");
-        } else if (poisoned) {
-            alert("Game over...");
-        } else if (sweet) {
-            alert("Hum la bonne sou-soupe sucrée !");
-        } else {
-            alert("Un autre cas existe, il faudra le traiter !");
+        function isSalty() {
+            let carrots = document.getElementById("carrots").checked;
+            let tomatoes = document.getElementById("tomatoes").checked;
+            let potatoes = document.getElementById("potatoes").checked;
+            return carrots || tomatoes || potatoes;
         }
-    }
 
-</script>
+        function isSweet() {
+            let black_chocolate = document.getElementById("black_chocolate").checked;
+            let white_chocolate = document.getElementById("white_chocolate").checked;
+            return black_chocolate || white_chocolate;
+        }
+
+        function isPoisoned() {
+            let vitriol = document.getElementById("vitriol").checked;
+            let cyanide = document.getElementById("cyanide").checked;
+            return vitriol || cyanide;
+        }
+
+        function doYouLikeIt() {
+            let salty = isSalty();
+            let sweet = isSweet();
+            let poisoned = isPoisoned();
+
+            if (salty && sweet) {
+                alert("Beurk... c'est pas bon !");
+            } else if (salty) {
+                alert("Hum la bonne sou-soupe salée !");
+            } else if (poisoned) {
+                alert("Game over...");
+            } else if (sweet) {
+                alert("Hum la bonne sou-soupe sucrée !");
+            } else {
+                alert("Un autre cas existe, il faudra le traiter !");
+            }
+        }
+
+        /*
+        on ajoute differentes fonctions pour chaque catégorie
+        on les return car si une d'entre elles sont selectionnees
+        il faudra afficher un message 
+        on crée une fonction pour ce qui sera choisi 
+        avec des variables qui correspondent aux fonctions 
+        et if; else if; pour afficher les messages qui correspondent 
+        a ce que a ete choisi
+        */
+
+    </script>
 </body>
+
 </html>
