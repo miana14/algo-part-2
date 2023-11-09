@@ -31,7 +31,13 @@
     <script type="text/javascript">
         function incrementNumber() {
             let number = document.getElementById("number").value;
-            realNumber = Number(number) + 1;
+            realNumber = Number(number) + 1; //ou alors alert(++number)
+            /*let number = parseInt(document.getElementById("number").value);
+                number+= 11;
+                alert(number)
+                donc si on tape 3 ca nous retournera 14
+            */
+
 
             alert(realNumber)
         }

@@ -41,19 +41,16 @@
     </div>
 
     <script type="text/javascript">
-        
+        const valid_promotion_code = "10POUR100";
         function cartValue() {
-            const valid_promotion_code = "10POUR100";
             let articles = document.getElementById("articles");
             let selectedArticle = articles.options[articles.selectedIndex].value;
             let promotion = document.getElementById("promotion").value;
-            let one = 30;
-            let two = 50;
 
-            if (one === selectedArticle && promotion === valid_promotion_code) {
+            if ('one' === selectedArticle && promotion === valid_promotion_code) {
                 alert("La valeur de votre panier est de 27€");
             } 
-            else if (two === selectedArticle && promotion === valid_promotion_code) {
+            else if ('two' === selectedArticle && promotion === valid_promotion_code) {
                 alert("La valeur de votre panier est de 45€");
             } 
             else {

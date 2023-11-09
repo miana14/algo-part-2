@@ -37,12 +37,12 @@
     </div>
 
     <script type="text/javascript">
+        const LEGAL_AGE = 18;
         function verifyAge() {
             let age = document.getElementById("age").value;
-            let legalAge = 18;
             let messageIf = 'Bienvenue sur le site';
             let messageElse = 'Vous devez être majeur pour accéder au site !';
-            if (age >= legalAge) {
+            if (age >= LEGAL_AGE) {
                 alert(messageIf);
             } else {
                 alert(messageElse);
