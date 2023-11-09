@@ -31,53 +31,36 @@
         <input type="text" id="value" />
 
         <select name="currency" id="currencies">
-            <option value="eur" id="eur" selected="selected">Euros</option>
-            <option value="usd" id="usd">Dollars</option>
+            <option value="eur" selected="selected">Euros</option>
+            <option value="usd" >Dollars</option>
         </select>
 
         <br />
-        <button type="button" class="btn btn-primary">
+        <button type="button" class="btn btn-primary" onclick="convert()">
             Connaître la valeur en USD->EUR ou EUR->USD
         </button>
     </div>
 
     <script type="text/javascript">
+        const EURO_TO_USD = 1.0729;
 
-        function convertU() {
-            let usd = document.getElementbyId("usd");
-            valusd = 0, 631;
-            if (isNaN(usd)) {
-                alert("Veuillez saisir une valeur numérique svp !!");
-                usd = 0;
+        function convert() {
+            let value = document.getElementById("value").value;
+            let currency = document.getElementById("currencies").value;
+
+            if (currency === "eur") {
+                alert(value + "Euros -> " + Number.parseFloat(value * EURO_TO_USD).toFixed(2) + "Dollars");
             }
             else {
-                usd = parseFloat(usd);
-                let eur = usd / eur;
-                eur = Math.round(eur * 100 / 100);
+                alert(value + "Dollars ->" + Number.parseFloat (value / EURO_TO_USD).toFixed(2) + "Euros");
             }
         }
-        function convertE() {
-            let eur = document.getElementById("eur");
-            if (isNaN(usd)) {
-                alert("Veuillez saisir une valeur numérique svp !!");
-                eur = 0;
-            }
-            else {
-                eur = parseFloat(eur);
-                let usd = usd / valusd;
-                usd = Math.round(usd * 100 / 100);
-            }
-            window.addEventListener("load", function () {
-                document.getElementById("eu").addEventListener("onkeyup", convertF);
-                document.getElementById("fr").addEventListener("onkeyup", convertE);
-            })
-
-        }
+        
         // 1 EUR = 1.0729 USD
         // CODE HERE !
 
         /*
-        pas réussi a finir
+        exercice a refaire
         */
     </script>
 </body>
